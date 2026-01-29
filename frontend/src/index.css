@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink-900 font-sans antialiased;
+    background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-ink-900;
+  }
+}
+
+@layer components {
+  /* Handwritten button style */
+  .btn {
+    @apply px-4 py-2 border-2 border-ink-900 rounded-sm font-bold uppercase tracking-wider 
+           bg-white text-ink-900 shadow-sketch transition-all duration-200
+           hover:-translate-y-1 hover:shadow-sketch-hover active:translate-y-0 active:shadow-sketch;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-100;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100;
+  }
+  
+  .btn-danger {
+    @apply bg-red-100 text-red-700 border-red-900;
+  }
+  
+  .input {
+    @apply w-full px-4 py-3 bg-white border-2 border-ink-900 text-ink-900 
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           bg-paper-lines bg-local;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    line-height: 25px; /* Match bg lines */
+  }
+  
+  .card {
+    @apply bg-white border-2 border-ink-900 p-6 shadow-sketch;
+    border-radius: 2px;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-sketch-hover hover:-translate-y-1 transition-all duration-200;
+  }
+  
+  /* Paper tape effect for drag items */
+  .tape-strip {
+    @apply relative bg-yellow-100/50 -rotate-1 mx-auto w-32 h-6 -mt-3 mb-2 opacity-80;
+    mask-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 L100%25 0 L100%25 100%25 L0 100%25 Z' fill='black'/%3E%3C/svg%3E");
+    /* Simple tape look */
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  }
+}
